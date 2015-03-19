@@ -27,7 +27,7 @@ Bundle 'The-NERD-tree'
 "github repos.
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'powerline/powerline'
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
 "Bundle 'bling/vim-airline'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'Shougo/neocomplcache.vim'
@@ -36,6 +36,7 @@ Bundle 'klen/python-mode'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/google.vim'
+Bundle 'vim-scripts/VOoM'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 "Bundle 'brookhong/cscope.vim'
@@ -52,12 +53,14 @@ Plugin 'google/vim-codefmt'
 " " Also add Glaive, which is used to configure codefmt's maktaba flags. See
 " " `:help :Glaive` for usage.
 Plugin 'google/vim-glaive'
-"call glaive#Install()
-" " Optional: Enable codefmt's default mappings on the <Leader>= prefix.
-"Glaive codefmt plugin[mappings]
-
 call vundle#end()
 filetype plugin indent on " required!
+
+call glaive#Install()
+" " Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+"Glaive codefmt plugin[mappings]
+Glaive codefmt clang_format_executable='clang-format-3.5'
+noremap  <Leader>= :FormatCode<CR>
 
 "
 " Brief help
@@ -70,6 +73,8 @@ filetype plugin indent on " required!
 " NOTE: comments after Bundle command are not allowed..
 """"""""""""""""""""""""END VUNDLE""""""""""""""""""""""""""
 
+noremap  <F2> :NERDTreeToggle<CR>
+noremap  <F4> :A<CR>
 
 
 set mouse=a

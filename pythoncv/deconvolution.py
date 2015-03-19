@@ -89,11 +89,7 @@ if __name__ == '__main__':
             psf = defocus_kernel(d)
         else:
             psf = motion_kernel(ang, d)
-        print('psf!')
-        #oimg = psf.clone()
         cv2.imshow('psf', psf)
-        oimg = cv2.cvtColor(psf, cv2.COLOR_GRAY2BGR);
-        cv2.imwrite('output.png', oimg)
 
         psf /= psf.sum()
         psf_pad = np.zeros_like(img)
@@ -107,6 +103,10 @@ if __name__ == '__main__':
         res = np.roll(res, -kh//2, 0)
         res = np.roll(res, -kw//2, 1)
         cv2.imshow(win, res)
+        #oimg = cv2.cvtColor(res, cv2.COLOR_GRAY2BGR)
+        #store output image
+        oimg = np.float32(res)*255.0
+        cv2.imwrite('output.png', oimg)
 
     cv2.namedWindow(win)
     cv2.namedWindow('psf', 0)
