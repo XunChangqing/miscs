@@ -1,0 +1,184 @@
+set nocompatible                " be iMproved
+filetype off                    " required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+"my Bundle here:
+"
+" original repos on github
+"Fuzzy file, buffer, mru, tag, etc finder.
+Bundle 'kien/ctrlp.vim'
+"xml edit
+"Bundle 'sukima/xmledit'
+"gui undo tree
+Bundle 'sjl/gundo.vim'
+"insert or delete brackets, parens, quotes in pair
+"Bundle 'jiangmiao/auto-pairs'
+"bag of python plugins
+Bundle 'klen/python-mode'
+"list of location and quick fix
+"Bundle 'Valloric/ListToggle'
+"
+"Bundle 'SirVer/ultisnips'
+"Bundle 'Valloric/YouCompleteMe'
+"a syntax checking plugin for Vim that runs files through external syntax
+"checkers and displays any resulting errors to the user Bundle
+"'scrooloose/syntastic'
+"quickly highlight or visually selected word.
+"Bundle 't9md/vim-quickhl'
+"The ultimate vim statusline utility
+Bundle 'Lokaltog/vim-powerline'
+"Vim plugin for intensely orgasmic commenting
+Bundle 'scrooloose/nerdcommenter'
+"vim lldb
+"Bundle 'gilligan/vim-lldb'
+"..................................
+" vim-scripts repos
+"Bundle 'YankRing.vim'
+"VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK, git,
+"bzr, and hg within VIM, including committing changes and performing diffs
+"using the vimdiff system.
+Bundle 'vcscommand.vim'
+"ShowPairs highlights the matching pair surrounding the current cursor location.
+Bundle 'ShowPairs'
+"Edit Files using sudo or su or any other tool
+Bundle 'SudoEdit.vim'
+"EasyGrep is a plugin for performing search and replace operations through multiple files
+Bundle 'EasyGrep'
+"VOoM (Vim Outliner of Markups) is a plugin for Vim that emulates a two-pane
+"text outliner. support latex wiki html, etc.
+Bundle 'VOoM'
+"Indent file for GOOGLE C++ coding style
+"Remember to rename the indent/google.vim to indent/cpp.vim, or create a
+"symbol link cpp.vim to google.vim
+Bundle 'google.vim'
+"Add maktaba and codefmt to the runtimepath.
+" (The latter must be installed before it can be used.)
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmtlib'
+Plugin 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags.
+"See
+" `:help :Glaive` for usage.
+Plugin 'google/vim-glaive'
+"VimIM为中文输入法支持
+"Bundle 'VimIM'
+"..................................
+" xcq repos
+"Bundle 'TabBar'
+Bundle 'minibufexpl.vim'
+"Bundle 'zhaocai/minibufexpl.vim'
+"Bundle 'winmanager'
+Bundle 'scrooloose/nerdtree'
+Bundle 'a.vim'
+Bundle 'tomtom/quickfixsigns_vim'
+"Bundle 'zhaocai/GoldenView.Vim'
+"Bundle 'jalcine/cmake.vim'
+"Bundle 'vim-cmake-project
+"Bundle 'vhdirk/vim-cmake'
+"..................................
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+"......................................
+call vundle#end()
+filetype plugin indent on
+
+call glaive#Install()
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+"Glaive codefmt plugin[mappings]
+
+let g:pymode_indent = 1
+let g:pymode_doc = 1
+let g:pymode_doc_bind = 'K'
+let g:pymode_run = 1
+let g:pymode_run_bind = '<leader>r'
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_completion_bind = '<C-Space>'
+
+"settings for syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_c_include_dirs = [ 'inc', 'includes', 'headers', '/usr/local/include']
+"let g:syntastic_cpp_include_dirs = [ 'inc', 'includes', 'headers' , '/usr/local/include']
+"let g:syntastic_echo_current_error = 1
+
+"settings for powerline
+set laststatus=2   " Always show the statusline
+
+"settings for quickhl
+"nmap <Space>m <Plug>(quickhl-manual-this)
+"xmap <Space>m <Plug>(quickhl-manual-this)
+"nmap <F9>     <Plug>(quickhl-manual-toggle)
+"xmap <F9>     <Plug>(quickhl-manual-toggle)
+
+"nmap <Space>M <Plug>(quickhl-manual-reset)
+"xmap <Space>M <Plug>(quickhl-manual-reset)
+
+"nmap <Space>j <Plug>(quickhl-cword-toggle)
+
+"nmap <Space>] <Plug>(quickhl-tag-toggle)
+"let g:quickhl_cword_enable_at_startup = 1
+"let g:quickhl_tag_enable_at_startup = 1
+
+"settings for minibufexpl
+let g:miniBufExplMaxSize = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+
+"easygrep settings
+let g:EasyGrepMode = 2
+
+"misc settings
+"nnoremap <silent> <F7> :WMToggle<CR>
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <F3> :GundoToggle<CR>
+nnoremap <silent> <F4> :A<CR>
+
+"youcompleteme settings
+"let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"ultisnips settings
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"goldenview settings
+"let g:goldenview__enable_default_mapping = 0
+"nmap <silent> <C-L>  <Plug>GoldenViewSplit
+"nmap <silent> <leader>n  <Plug>GoldenViewSwitchToggle
+"nmap <silent> <C-N>  <Plug>GoldenViewSwitchMain
+
+nnoremap <C-X> :wa<CR>
+nnoremap <silent> <F7> :make<CR>
+nnoremap <leader>q :cw<CR>
+nnoremap <silent> <F9> :!ctags -R .<CR><CR>
+nnoremap <leader>= :FormatCode<CR>
+
+"ctags -R -f ~/.vim/localtags /usr/local/include/
+set tags=~/.vim/localtags
+"ctags -R -f ~/.vim/usrtags /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include/*
+set tags+=~/.vim/usrtags
+set tags+=./tags
+
+set nu
+set ic
+set hlsearch
+set incsearch
+"set backupdir=~/.vim/backup
+syntax enable
+set ruler
+set backspace=indent,eol,start
+"set textwidth=74
+set hidden
