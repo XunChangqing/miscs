@@ -64,9 +64,6 @@ Plugin 'google/vim-codefmt'
 "See
 " `:help :Glaive` for usage.
 Plugin 'google/vim-glaive'
-"call glaive#Install()
-" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
-"Glaive codefmt plugin[mappings]
 "VimIM为中文输入法支持
 "Bundle 'VimIM'
 "..................................
@@ -86,8 +83,13 @@ Bundle 'tomtom/quickfixsigns_vim'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 "......................................
+call vundle#end()
 filetype plugin indent on
-"settings for pymode
+
+call glaive#Install()
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+"Glaive codefmt plugin[mappings]
+
 let g:pymode_indent = 1
 let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
