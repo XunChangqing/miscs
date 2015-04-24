@@ -1,7 +1,8 @@
 set nocompatible                " be iMproved
 filetype off                    " required!
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+
+call vundle#begin()
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
@@ -18,7 +19,7 @@ Bundle 'sjl/gundo.vim'
 "insert or delete brackets, parens, quotes in pair
 "Bundle 'jiangmiao/auto-pairs'
 "bag of python plugins
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
 "list of location and quick fix
 "Bundle 'Valloric/ListToggle'
 "
@@ -54,7 +55,8 @@ Bundle 'VOoM'
 "Indent file for GOOGLE C++ coding style
 "Remember to rename the indent/google.vim to indent/cpp.vim, or create a
 "symbol link cpp.vim to google.vim
-Bundle 'google.vim'
+"Bundle 'google.vim'
+"Plugin 'vim-scripts/google.vim'
 "Add maktaba and codefmt to the runtimepath.
 " (The latter must be installed before it can be used.)
 Plugin 'google/vim-maktaba'
@@ -63,13 +65,17 @@ Plugin 'google/vim-codefmt'
 " Also add Glaive, which is used to configure codefmt's maktaba flags.
 "See
 " `:help :Glaive` for usage.
-Plugin 'google/vim-glaive'
+"Plugin 'google/vim-glaive'
+"call glaive#Install()
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+"Glaive codefmt plugin[mappings]
 "VimIM为中文输入法支持
 "Bundle 'VimIM'
 "..................................
 " xcq repos
 "Bundle 'TabBar'
-Bundle 'minibufexpl.vim'
+"Bundle 'minibufexpl.vim'
+Bundle 'techlivezheng/vim-plugin-minibufexpl'
 "Bundle 'zhaocai/minibufexpl.vim'
 "Bundle 'winmanager'
 Bundle 'scrooloose/nerdtree'
@@ -79,17 +85,21 @@ Bundle 'tomtom/quickfixsigns_vim'
 "Bundle 'jalcine/cmake.vim'
 "Bundle 'vim-cmake-project
 "Bundle 'vhdirk/vim-cmake'
+"Bundle 'vim-scripts/Vim-JDE'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+" emmet-vim for html editing
+Bundle 'mattn/emmet-vim'
+Bundle 'tpope/vim-surround'
 "..................................
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 "......................................
 call vundle#end()
+filetype on
 filetype plugin indent on
-
-call glaive#Install()
-" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
-"Glaive codefmt plugin[mappings]
-
+"call glaive#Install()
+"settings for pymode
 let g:pymode_indent = 1
 let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
@@ -133,12 +143,18 @@ set laststatus=2   " Always show the statusline
 "let g:quickhl_tag_enable_at_startup = 1
 
 "settings for minibufexpl
+"let g:miniBufExplMaxSize = 1
 let g:miniBufExplMaxSize = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 
 "easygrep settings
 let g:EasyGrepMode = 2
 
+"ruby settings
+imap <S-CR>    <CR><CR>end<Esc>-cc
+set expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2
+set autoindent
 "misc settings
 "nnoremap <silent> <F7> :WMToggle<CR>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
@@ -161,7 +177,7 @@ nnoremap <silent> <F4> :A<CR>
 "nmap <silent> <C-N>  <Plug>GoldenViewSwitchMain
 
 nnoremap <C-X> :wa<CR>
-nnoremap <silent> <F7> :make<CR>
+nnoremap <silent> <F7> :wa <bar> make -C build<CR><CR><CR>
 nnoremap <leader>q :cw<CR>
 nnoremap <silent> <F9> :!ctags -R .<CR><CR>
 nnoremap <leader>= :FormatCode<CR>
@@ -177,7 +193,7 @@ set ic
 set hlsearch
 set incsearch
 "set backupdir=~/.vim/backup
-syntax enable
+syntax on
 set ruler
 set backspace=indent,eol,start
 "set textwidth=74

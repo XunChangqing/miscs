@@ -79,37 +79,37 @@ if __name__ == '__main__':
     Esc - exit \n
     '''
 
-    cv2.imshow('image',im)
+    cv2.imshow('image',gray)
     while True:
         k = cv2.waitKey(0)&0xFF
         if k == ord('a'):
             curve = hist_curve(im)
-            cv2.imshow('histogram',curve)
+            #cv2.imshow('histogram',curve)
             cv2.imshow('image',im)
             print 'a'
         elif k == ord('b'):
             print 'b'
             lines = hist_lines(im)
-            cv2.imshow('histogram',lines)
+            #cv2.imshow('histogram',lines)
             cv2.imshow('image',gray)
             cv2.imwrite("grayimg.jpg", gray)
         elif k == ord('c'):
             print 'c'
             equ = cv2.equalizeHist(gray)
             lines = hist_lines(equ)
-            cv2.imshow('histogram',lines)
+            #cv2.imshow('histogram',lines)
             cv2.imshow('image',equ)
             cv2.imwrite("equalizeHist.jpg", equ)
         elif k == ord('d'):
             print 'd'
             curve = hist_curve(gray)
-            cv2.imshow('histogram',curve)
+            #cv2.imshow('histogram',curve)
             cv2.imshow('image',gray)
         elif k == ord('e'):
             print 'e'
             norm = cv2.normalize(gray,alpha = 0,beta = 255,norm_type = cv2.NORM_MINMAX)
             lines = hist_lines(norm)
-            cv2.imshow('histogram',lines)
+            #cv2.imshow('histogram',lines)
             cv2.imshow('image',norm)
         elif k == 27:
             print 'ESC'
