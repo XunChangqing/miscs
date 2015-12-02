@@ -7,6 +7,8 @@ call vundle#begin()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
+Bundle 'klen/python-mode'
+
 "my Bundle here:
 "
 " original repos on github
@@ -19,7 +21,6 @@ Bundle 'sjl/gundo.vim'
 "insert or delete brackets, parens, quotes in pair
 "Bundle 'jiangmiao/auto-pairs'
 "bag of python plugins
-"Bundle 'klen/python-mode'
 "list of location and quick fix
 "Bundle 'Valloric/ListToggle'
 "
@@ -42,16 +43,16 @@ Bundle 'scrooloose/nerdcommenter'
 "VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK, git,
 "bzr, and hg within VIM, including committing changes and performing diffs
 "using the vimdiff system.
-Bundle 'vcscommand.vim'
+"Bundle 'vcscommand.vim'
 "ShowPairs highlights the matching pair surrounding the current cursor location.
 Bundle 'ShowPairs'
 "Edit Files using sudo or su or any other tool
-Bundle 'SudoEdit.vim'
+"Bundle 'SudoEdit.vim'
 "EasyGrep is a plugin for performing search and replace operations through multiple files
 Bundle 'EasyGrep'
 "VOoM (Vim Outliner of Markups) is a plugin for Vim that emulates a two-pane
 "text outliner. support latex wiki html, etc.
-Bundle 'VOoM'
+"Bundle 'VOoM'
 "Indent file for GOOGLE C++ coding style
 "Remember to rename the indent/google.vim to indent/cpp.vim, or create a
 "symbol link cpp.vim to google.vim
@@ -88,9 +89,16 @@ Bundle 'tomtom/quickfixsigns_vim'
 "Bundle 'vim-scripts/Vim-JDE'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-haml'
 " emmet-vim for html editing
-Bundle 'mattn/emmet-vim'
+"Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-surround'
+"Plugin 'rizzatti/dash.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'pangloss/vim-javascript'
+
+Bundle 'yaml.vim'
+"Bundle 'chase/vim-ansible-yaml'
 "..................................
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -100,16 +108,19 @@ filetype on
 filetype plugin indent on
 "call glaive#Install()
 "settings for pymode
-let g:pymode_indent = 1
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-let g:pymode_run = 1
-let g:pymode_run_bind = '<leader>r'
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
-let g:pymode_rope_completion_bind = '<C-Space>'
+"let g:pymode_indent = 1
+"let g:pymode_doc = 1
+"let g:pymode_doc_bind = 'K'
+let g:pymode_folding = 0
+let g:pymode_lint_cwindow = 0
+"let g:pymode_run = 0
+"nnoremap <leader>r :PymodeLintAuto<CR>
+"let g:pymode_run_bind = '<leader>r'
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_bind = '<leader>b'
+"let g:pymode_rope_completion = 1
+"let g:pymode_rope_complete_on_dot = 1
+"let g:pymode_rope_completion_bind = '<C-Space>'
 
 "settings for syntastic
 "set statusline+=%#warningmsg#
@@ -182,6 +193,11 @@ nnoremap <leader>q :cw<CR>
 nnoremap <silent> <F9> :!ctags -R .<CR><CR>
 nnoremap <leader>= :FormatCode<CR>
 
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
+vnoremap <leader>p "0p
+nnoremap <leader>d "_d
+
 "ctags -R -f ~/.vim/localtags /usr/local/include/
 set tags=~/.vim/localtags
 "ctags -R -f ~/.vim/usrtags /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include/*
@@ -198,3 +214,11 @@ set ruler
 set backspace=indent,eol,start
 "set textwidth=74
 set hidden
+
+set fileencodings=utf-8,ucs-bom,shift-jis,latin1,big5,gb18030,gbk,gb2312,cp936
+set fileencoding=utf-8  
+set encoding=utf-8
+set termencoding=utf-8 
+set guifont=Courier\ New\:h12  
+set guifontwide=NSimsun\:h12 
+
